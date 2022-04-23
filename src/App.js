@@ -1,27 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Paragraf from './Components/state';
+import "./App.css";;
+
 
 function App() {
+
+  // State adalah penampungan data (yang bisa di ubah)
+  const [getParagrafValue, setParagrafValue] = useState(``);
+
+  const changeParagrafValue = () => {
+    setParagrafValue(`Parafraf berhasil diubah`);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-          <p>
-            test react
-          </p>
-          
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Paragraf parValue={getParagrafValue}/>
+      <button onClick={() => changeParagrafValue()}>Ubah Paragraf</button>
     </div>
   );
 }
